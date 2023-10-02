@@ -1,63 +1,15 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "affected": {
-    "defaultBase": "master"
-  },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "NjEwNDNlODEtYjVlMC00MzcwLWJmNDAtMWZiMzQzZDlmM2ZjfHJlYWQtd3JpdGU="
+        "cacheableOperations": [
+          "build"
+        ]
       }
     }
   },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "e2e": {
-      "inputs": ["default", "^production"]
-    },
-    "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore"
-      ]
-    },
-    "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
-    }
-  },
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/src/test-setup.[jt]s",
-      "!{projectRoot}/test-setup.[jt]s"
-    ],
-    "sharedGlobals": []
-  },
-  "defaultProject": "app",
-  "generators": {
-    "@nx/angular:application": {
-      "style": "css",
-      "linter": "eslint",
-      "unitTestRunner": "none",
-      "e2eTestRunner": "cypress"
-    },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "none"
-    },
-    "@nx/angular:component": {
-      "style": "css"
-    }
+  "affected": {
+    "defaultBase": "main"
   }
 }
