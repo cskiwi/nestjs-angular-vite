@@ -35,7 +35,6 @@
     "vite.config.ts"
   ],
   "include": [
-    "src/**/*",
-    "src/server/**/*"
+    "src/**/*"
   ]
 }

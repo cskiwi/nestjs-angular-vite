@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import { angular } from '@nitedani/vite-plugin-angular/plugin';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import vavite from 'vavite';
+import vercel from 'vite-plugin-vercel';
 
 export default defineConfig({
   buildSteps: [
@@ -26,5 +27,6 @@ export default defineConfig({
       serveClientAssetsInDev: true,
     }),
     tsconfigPaths(),
+    vercel(),
   ],
 });
